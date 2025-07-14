@@ -7,23 +7,19 @@ int main() {
     while(t--) {
         ll a, b, x, y;
         cin>>a>>b>>x>>y;
-        if ((b-a) < -1 or 2*b <= a ) {
+        if ((b<a)|| a^1 != b ) {
             cout<<-1<<endl;
             continue;
         }
-        if(b-a == -1) {
+        if(b<a && a^1==b) {
             cout<<y<<endl;
             continue;
         }
 
-        if(b==a) {
-            cout<<0<<endl;
-            continue;
-        }
-        if (a && 1) {
+        if (a%2==1) {
             if(x>y){
-                int val = (a-b) /2;
-                if((a-b)%2==1){
+                ll val = (b-a) /2;
+                if((b-a)%2==1){
                  cout<< abs(x*(val +1) + y* val)<<endl;
                  continue;
                 }
@@ -36,5 +32,22 @@ int main() {
                 continue;
             }
         }
-    }
+        else {
+              if(x>y){
+                int val = (b-a) /2;
+                if((b-a)%2==1){
+                 cout<< abs(x*(val) + y* (val+1))<<endl;
+                 continue;
+                }
+                else {
+                   cout<<abs((x+y)*val) <<endl;
+                }
+            }
+            else {
+                cout<<abs(x*(a-b))<<endl;
+                continue;
+            }
+
+        }
+    } return 0;
 }
