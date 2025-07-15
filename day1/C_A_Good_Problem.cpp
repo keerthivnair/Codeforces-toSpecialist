@@ -1,21 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-int main() {
-    ll t;
-    cin>>t;
-    while(t--) {
-        ll n,l,r,k;
-        cin>>n>>l>>r>>k;
-        if (n%2 == 1) {
-            cout<<l<<endl;
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        long long n, l, r, k;
+        cin >> n >> l >> r >> k;
+        if (n == 2)
+        {
+            cout << -1 << '\n';
             continue;
         }
-        else {
-            if (k<=n/2){
-                cout<<l<<endl;
-                continue;
+        if (n % 2 == 1)
+        {
+            cout << l << '\n';
+            continue;
+        }
+        int flag = 0;
+
+        for (int i = 1; i <= r; i*=2)
+        {
+            if (i>l)
+            {
+                flag = 1;
+                if (k <= n-2) 
+                cout<<l<<'\n';
+                else 
+                cout<<i<<'\n';
+                break;
             }
         }
-    } return 0;
+        if (!flag)
+        {
+            cout << -1 << '\n';
+        }
+    }
+    return 0;
 }
