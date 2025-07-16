@@ -1,27 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-int main() {
+int main()
+{
     int t;
     cin >> t;
-    while (t--) {
+    while (t--)
+    {
         int n;
         cin >> n;
-        int even;
-
-        if (n % 2 == 1) {
-            even = n / 2 + 1;
-        } else {
-            even = n / 2;
+        int count = 0;
+        if (n % 4 != 0)
+        {
+            cout << "Alice \n";
         }
-
-        int odd = n - even;
-
-        if (even == odd && n >= 4) {
-            cout << "Bob" << endl;
-        } else {
-            cout << "Alice" << endl;
-        }
+        else
+            cout << "Bob \n";
     }
     return 0;
 }
