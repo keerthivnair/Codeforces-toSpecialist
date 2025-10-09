@@ -12,19 +12,22 @@ int main()
         cin >> n;
         string s;
         cin >> s;
-        unordered_map<char, int> mpp;
-        for (auto &x : s)
-            mpp[x]++;
-        if (mpp['a'] == mpp['b'])
+        map<int, int> mpp;
+        int c = count(s.begin(), s.end(), 'a') - count(s.begin(), s.end(), 'b');
+        int ans = n;
+        int sum = 0;
+        mpp[0]= -1;
+        for (int i = 0; i < n; i++)
         {
-            cout << 0 << '\n';
-            continue;
+            sum += s[i] == 'a' ? 1 : -1;
+            mpp[sum]=i;
+
+            if(mpp.count(sum-c)) {
+                ans = min(ans,i-mpp[sum-c]);
+            }
         }
-        if (abs(mpp['a'] - mpp['b']) == n)
-        {
-            cout << -1 << "\n";
-            continue;
-        }
-        
-    }
+        if(ans == n) cout << -1;
+        else cout << ans;
+        cout << '\n';
+    } return 0;
 }
