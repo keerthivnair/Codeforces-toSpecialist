@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Proposal - Montclair Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a4d2e;
+            padding: 60px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #0f6139;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            background: #0a4d2e;
+            padding: 50px 60px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #e8c558;
+            letter-spacing: 0.5px;
+        }
+        
+        .header p {
+            font-size: 0.95em;
+            color: #c9a647;
+            font-weight: 400;
+        }
+        
+        .contact-bar {
+            background: #0d5735;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            font-size: 0.9em;
+            color: #d4af37;
+        }
+        
+        .services {
+            padding: 50px 60px;
+        }
+        
+        .service-item {
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        .service-item:last-child {
+            border-bottom: none;
+        }
+        
+        .service-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 12px;
+        }
+        
+        .service-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #e8c558;
+        }
+        
+        .service-price {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #f4d87f;
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .service-description {
+            font-size: 0.9em;
+            line-height: 1.7;
+            color: #b89d42;
+            font-weight: 400;
+        }
+        
+        .total-bar {
+            background: #0a4d2e;
+            padding: 35px 60px;
+            border-top: 2px solid #d4af37;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .total-label {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #e8c558;
+        }
+        
+        .total-amount {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #f4d87f;
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .support-section {
+            background: #0d5735;
+            padding: 50px 60px;
+        }
+        
+        .support-header {
+            margin-bottom: 30px;
+        }
+        
+        .support-header h2 {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #e8c558;
+            margin-bottom: 8px;
+        }
+        
+        .support-header p {
+            font-size: 0.9em;
+            color: #b89d42;
+        }
+        
+        .support-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            margin-bottom: 30px;
+        }
+        
+        .support-price {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #e8c558;
+        }
+        
+        .free-badge {
+            background: #d4af37;
+            color: #0a4d2e;
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .support-features {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 30px;
+        }
+        
+        .support-features li {
+            font-size: 0.9em;
+            color: #b89d42;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .support-features li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+        }
+        
+        .note {
+            margin-top: 30px;
+            font-size: 0.85em;
+            color: #9b8438;
+            font-style: italic;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 0 10px;
+            }
+            
+            .header,
+            .services,
+            .total-bar,
+            .support-section {
+                padding: 30px;
+            }
+            
+            .contact-bar {
+                flex-direction: column;
+                gap: 8px;
+                padding: 20px 30px;
+            }
+            
+            .service-row {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .support-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .support-price-row {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Montclair Labs</h1>
+            <p>Web Development Services</p>
+        </div>
+        
+        <div class="contact-bar">
+            <span>montclairlabs@gmail.com</span>
+            <span>+91 62385 03692</span>
+        </div>
+        
+        <div class="services">
+            <div class="service-item">
+                <div class="service-row">
+                    <div class="service-title">Website Design & Development</div>
+                    <div class="service-price">₹18,000</div>
+                </div>
+                <div class="service-description">
+                    Custom responsive website with modern UI/UX design, mobile-first approach, smooth animations, and interactive elements. Includes all core pages with professional layouts optimized for user engagement and conversion.
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-row">
+                    <div class="service-title">Content Management & Integration</div>
+                    <div class="service-price">₹8,500</div>
+                </div>
+                <div class="service-description">
+                    Dynamic content sections, contact forms with validation, gallery integration, blog/news system, social media integration, and WhatsApp chat widget for instant communication.
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-row">
+                    <div class="service-title">Technical Setup & Optimization</div>
+                    <div class="service-price">₹7,500</div>
+                </div>
+                <div class="service-description">
+                    Domain registration (1 year), premium hosting with 99.9% uptime, SSL certificate, professional email accounts, SEO optimization, Google Analytics integration, page speed optimization, and cross-browser compatibility testing.
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-row">
+                    <div class="service-title">Security & Performance</div>
+                    <div class="service-price">₹6,000</div>
+                </div>
+                <div class="service-description">
+                    Advanced security implementation, automated backup system, spam protection, performance monitoring, and complete documentation for future reference.
+                </div>
+            </div>
+        </div>
+        
+        <div class="total-bar">
+            <div class="total-row">
+                <div class="total-label">Total</div>
+                <div class="total-amount">₹40,000</div>
+            </div>
+        </div>
+        
+        <div class="support-section">
+            <div class="support-header">
+                <h2>Ongoing Support & Maintenance</h2>
+                <p>Optional subscription service</p>
+            </div>
+            
+            <div class="support-price-row">
+                <div class="support-price">₹2,500 / month</div>
+                <div class="free-badge">FIRST 3 MONTHS FREE</div>
+            </div>
+            
+            <ul class="support-features">
+                <li>Content updates & modifications</li>
+                <li>Technical support & bug fixes</li>
+                <li>Security patches & updates</li>
+                <li>Performance optimization</li>
+                <li>Monthly backup verification</li>
+                <li>Priority support access</li>
+                <li>Software & plugin updates</li>
+                <li>24/7 uptime monitoring</li>
+            </ul>
+            
+            <p class="note">
+                Support begins after the initial 3-month free period. Cancel anytime with 30 days notice.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
