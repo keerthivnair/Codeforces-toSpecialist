@@ -27,36 +27,24 @@ void fastio()
 
 void solve()
 {
-    int n, k, x;
-    cin >> n >> k >> x;
+    int n;
+    cin >> n;
     vector<int> a(n);
-    f(i, 0, n) cin >> a[i];
-    a.pb(1e9);
-    a.pb(-1e9);
-    n += 2;
-    sort(a.begin(), a.end());
-
-    int l = 0, r = x + 1;
-    while (l + 1 < r)
+    bool odd = false, even = false;
+    f(i, 0, n)
     {
-        int m = (l + r) >> 1;
-        a[0] = -m;
-        a[n - 1] = x + m;
-        int s = 0;
-        f(i, 1, n) s += max(0LL, (a[i] - m) - (a[i - 1] + m) + 1);
-        if (s >= k)
-            l = m;
+        cin >> a[i];
+        if (a[i] % 2 == 1)
+            odd = true;
         else
-            r = m;
+            even = true;
     }
-    a[0] = -l;
-    a[n - 1] = x + l;
-    int j = 0;
-    f(i, 1, n)
+    if (even && odd)
     {
-        for (j = max(j, a[i - 1] + l); j <= min((a[i] - l), x) && k; j++)
-            cout << j << ' ', k--;
+        sort(all(a));
     }
+
+    f(i, 0, n) cout << a[i] << " ";
     cout << '\n';
     return;
 }
