@@ -27,31 +27,36 @@ void fastio()
 
 void solve()
 {
-    int k;
-    cin >> k;
-
-    if (k == 1)
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    f(i, 0, n) cin >> a[i];
+    int maxel = a[0];
+    int ind = 0;
+    f(i, 0, n - 1)
     {
-        cout << 1 << " " << 1 << endl;
-        return;
+        maxel = max(maxel, a[i]);
+        if (maxel == a[i])
+            ind = i;
     }
-    int idx = k - 2;
-    long long a = idx / 2 + 2;
-
-    int a_mod = a % MOD;
-    int a3 = (a_mod * a_mod) % MOD;
-    a3 = (a3 * a_mod) % MOD;
-
-    if (idx % 2 == 0)
-        cout << min(a_mod,a3) << " " << max(a_mod,a3) << endl;
-    else
-        cout << max(a_mod,a3) << " " << min(a_mod,a3) << endl;
+    int sum = 0;
+    ind = n - 2;
+    f(i, 0, n - 1)
+    {
+        if (i == ind)
+            continue;
+        sum += a[i];
+    }
+    maxel -= sum;
+    cout << a[n - 1] - maxel << '\n';
+    return;
 }
 
 int32_t main()
 {
     fastio();
-    int t = 1;
+    int t;
+    cin >> t;
     while (t--)
         solve();
     return 0;

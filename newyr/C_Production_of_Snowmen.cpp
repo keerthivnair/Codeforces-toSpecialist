@@ -25,34 +25,46 @@ void fastio()
     cin.tie(nullptr);
 }
 
+bool good(vector<int> &a, vector<int> &b, int k, int n)
+{
+    f(i, 0, n)
+    {
+        if (a[i] >= b[(i + k) % n])
+            return false;
+    }
+    return true;
+}
+
 void solve()
 {
-    int k;
-    cin >> k;
+    int n;
+    cin >> n;
+    vector<int> a(n), b(n), c(n);
+    f(i, 0, n) cin >> a[i];
+    f(i, 0, n) cin >> b[i];
+    f(i, 0, n) cin >> c[i];
 
-    if (k == 1)
+    int k1 = 0, k2 = 0;
+    f(i, 0, n)
     {
-        cout << 1 << " " << 1 << endl;
-        return;
+        if (good(a, b, i, n))
+            k1++;
+        if (good(b, c, i, n))
+            k2++;
     }
-    int idx = k - 2;
-    long long a = idx / 2 + 2;
-
-    int a_mod = a % MOD;
-    int a3 = (a_mod * a_mod) % MOD;
-    a3 = (a3 * a_mod) % MOD;
-
-    if (idx % 2 == 0)
-        cout << min(a_mod,a3) << " " << max(a_mod,a3) << endl;
-    else
-        cout << max(a_mod,a3) << " " << min(a_mod,a3) << endl;
+    cout << k1 * k2 * n << '\n';
+    return;
 }
 
 int32_t main()
 {
     fastio();
-    int t = 1;
+    int t;
+    cin >> t;
     while (t--)
         solve();
     return 0;
 }
+
+
+

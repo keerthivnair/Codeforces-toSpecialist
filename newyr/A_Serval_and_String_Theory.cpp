@@ -27,31 +27,41 @@ void fastio()
 
 void solve()
 {
-    int k;
-    cin >> k;
-
-    if (k == 1)
+    int n, k;
+    cin >> n >> k;
+    string s;
+    cin >> s;
+    char minch = 'z';
+    set<char> st;
+    f(i, 0, n)
     {
-        cout << 1 << " " << 1 << endl;
+        minch = min(minch, s[i]);
+        st.insert(s[i]);
+    }
+    string t = s;
+    reverse(all(t));
+    if (s < t)
+    {
+        cout << "YES \n";
         return;
     }
-    int idx = k - 2;
-    long long a = idx / 2 + 2;
-
-    int a_mod = a % MOD;
-    int a3 = (a_mod * a_mod) % MOD;
-    a3 = (a3 * a_mod) % MOD;
-
-    if (idx % 2 == 0)
-        cout << min(a_mod,a3) << " " << max(a_mod,a3) << endl;
+    else if ((k == 0) || (t == s && st.size()==1))
+    {
+        cout << "NO \n";
+        return;
+    }
     else
-        cout << max(a_mod,a3) << " " << min(a_mod,a3) << endl;
+    {
+        cout << "YES \n";
+        return;
+    }
 }
 
 int32_t main()
 {
     fastio();
-    int t = 1;
+    int t;
+    cin >> t;
     while (t--)
         solve();
     return 0;

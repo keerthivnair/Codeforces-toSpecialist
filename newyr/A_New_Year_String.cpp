@@ -27,31 +27,25 @@ void fastio()
 
 void solve()
 {
-    int k;
-    cin >> k;
-
-    if (k == 1)
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    if (s.find("2025") != std::string::npos && s.find("2026") == std::string::npos)
     {
-        cout << 1 << " " << 1 << endl;
+        cout << 1 << '\n';
         return;
     }
-    int idx = k - 2;
-    long long a = idx / 2 + 2;
-
-    int a_mod = a % MOD;
-    int a3 = (a_mod * a_mod) % MOD;
-    a3 = (a3 * a_mod) % MOD;
-
-    if (idx % 2 == 0)
-        cout << min(a_mod,a3) << " " << max(a_mod,a3) << endl;
     else
-        cout << max(a_mod,a3) << " " << min(a_mod,a3) << endl;
+        cout << 0 << '\n';
+    return;
 }
 
 int32_t main()
 {
     fastio();
-    int t = 1;
+    int t;
+    cin >> t;
     while (t--)
         solve();
     return 0;

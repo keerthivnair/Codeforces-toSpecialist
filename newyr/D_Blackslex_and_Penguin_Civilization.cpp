@@ -24,34 +24,49 @@ void fastio()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 }
-
 void solve()
 {
-    int k;
-    cin >> k;
+    int n;
+    cin >> n;
 
-    if (k == 1)
+    int LIM = (1LL << n);
+
+    cout << LIM - 1 << " ";
+    set<int> st;
+    st.insert(LIM - 1);
+
+    for (int i = n - 1; i > 0; i--)
     {
-        cout << 1 << " " << 1 << endl;
-        return;
+        for (int j = 0; j < LIM - 1; j++)
+        {
+            if (st.find(j) != st.end())
+                continue;
+
+            int div = (1LL << i); // kept as you asked
+
+            if ((j % div) == ((1LL << i) - 1))
+            {
+                cout << j << " ";
+                st.insert(j);
+            }
+        }
     }
-    int idx = k - 2;
-    long long a = idx / 2 + 2;
 
-    int a_mod = a % MOD;
-    int a3 = (a_mod * a_mod) % MOD;
-    a3 = (a3 * a_mod) % MOD;
+    for (int i = 0; i < LIM; i++)
+    {
+        if (st.find(i) == st.end())
+            cout << i << ' ';
+    }
 
-    if (idx % 2 == 0)
-        cout << min(a_mod,a3) << " " << max(a_mod,a3) << endl;
-    else
-        cout << max(a_mod,a3) << " " << min(a_mod,a3) << endl;
+    cout << endl;
 }
+
 
 int32_t main()
 {
     fastio();
-    int t = 1;
+    int t;
+    cin >> t;
     while (t--)
         solve();
     return 0;

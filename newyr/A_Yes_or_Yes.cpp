@@ -27,31 +27,27 @@ void fastio()
 
 void solve()
 {
-    int k;
-    cin >> k;
-
-    if (k == 1)
+    string s;
+    cin >> s;
+    int n = s.size();
+    int c = 0;
+    f(i, 0, n)
     {
-        cout << 1 << " " << 1 << endl;
-        return;
+        if (s[i] == 'Y')
+            c++;
     }
-    int idx = k - 2;
-    long long a = idx / 2 + 2;
-
-    int a_mod = a % MOD;
-    int a3 = (a_mod * a_mod) % MOD;
-    a3 = (a3 * a_mod) % MOD;
-
-    if (idx % 2 == 0)
-        cout << min(a_mod,a3) << " " << max(a_mod,a3) << endl;
+    if (c > 1)
+        cout << "NO\n";
     else
-        cout << max(a_mod,a3) << " " << min(a_mod,a3) << endl;
+        cout << "YES\n";
+    return;
 }
 
 int32_t main()
 {
     fastio();
-    int t = 1;
+    int t;
+    cin >> t;
     while (t--)
         solve();
     return 0;
